@@ -1,0 +1,22 @@
+{
+  "name": "dp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "author": "vitaliykyq",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "colors": "^1.4.0",
+    "connect-mongo": "^3.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "fs": "*",
+    "mongoose": "^6.2.10"
+  }
+}
