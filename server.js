@@ -1,5 +1,5 @@
 const express = require('express');
-const ejs = require('ejs');
+global.ejs = require('ejs');
 const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
@@ -14,7 +14,7 @@ let SETTINGS = JSON.parse(fs.readFileSync('settings.json').toString());
 let MongoDBURI = null;
 
 if(SETTINGS.mongo === "local") MongoDBURI = process.env.MONGO_URI || 'mongodb://localhost/dataBaseDP';
-if(SETTINGS.mongo === "web") MongoDBURI = "mongodb+srv://starandq:qwerty123@cluster0.1uw1r.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+if(SETTINGS.mongo === "web") MongoDBURI = "";
 
 mongoose.connect(MongoDBURI, {
   useUnifiedTopology: true,
@@ -46,11 +46,10 @@ app.use(express.static(__dirname + '/views'));
 const index = require('./routes/index');
 app.use('/', index);
 
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  const err = new Error('File Not Found');
-  err.status = 404;
-  next(err);
+  res.redirect('/error');
 });
 
 // error handler
