@@ -55,3 +55,5 @@
     
 
 })(jQuery);
+
+localStorage.removeItem('POSTLink');

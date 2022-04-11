@@ -15,16 +15,12 @@ function editData(elem){
             url: elem.getAttribute("href"),
             success: (response) => {
                 if (response) {
+                    localStorage.setItem("POSTLink", elem.getAttribute("href"));
                     generalBlock.innerHTML = response;
                     generalBlock.style.opacity = "1";
                     checkMenu = true;
 
-                    // Clear Input
-                    document.querySelectorAll("#addCuratorForm input").forEach(input => {
-                        input.addEventListener('change', (event) => {
-                            input.style.borderColor = "#ced4da";
-                        });
-                    });
+                    new AJAX_DATA(elem.getAttribute("href"));
 
                 }
                 else alert("ERR");
@@ -65,4 +61,57 @@ function addCurator(){
             }
         });
     }
+}
+
+function checkPage(){
+    const url = (localStorage.getItem("POSTLink")) ? localStorage.getItem("POSTLink") : "/mainPage";
+    generalBlock.style.transition = "0s";
+    generalBlock.style.opacity = "0";
+    $.ajax({
+        type: 'POST',
+        url: url,
+        success: (response) => {
+            if (response) {
+                generalBlock.innerHTML = response;
+                generalBlock.style.opacity = "1";
+                checkMenu = true;
+
+                new AJAX_DATA(url);
+                clickLink(url);
+            }
+            else alert("ERR");
+        }
+    });
+}
+
+checkPage();
+
+function clickLink(href){
+    document.querySelectorAll("#colorlib-main-menu li").forEach(elem => {
+        if(elem.querySelector('a').getAttribute('href') === href)
+            elem.setAttribute("class", "colorlib-active");
+        else
+            elem.removeAttribute("class");
+    })
+
+}
+
+class AJAX_DATA{
+    constructor(link) {
+        this.link = link;
+        switch (this.link){
+            case "/addCurator":
+                this.addCuratorForm();
+                break;
+        }
+    }
+
+    addCuratorForm() {
+        document.querySelectorAll("#addCuratorForm input").forEach(input => {
+            input.addEventListener('change', (event) => {
+                input.style.borderColor = "#ced4da";
+            });
+        });
+    }
+
 }
