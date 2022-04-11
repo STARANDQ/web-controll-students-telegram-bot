@@ -8127,12 +8127,12 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6; } }
 
 body {
-  font-family: "Poppins", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.8;
-  font-weight: normal;
-  background: #fafafa;
-  color: gray; }
+  font-family: "Poppins", Arial, sans-serif !important;;
+  font-size: 16px !important;;
+  line-height: 1.8 !important;;
+  font-weight: normal !important;;
+  background: #fafafa !important;;
+  color: gray; !important; }
   body.offcanvas {
     overflow-x: hidden; }
     body.offcanvas #colorlib-aside {

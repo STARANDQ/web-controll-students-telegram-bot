@@ -22,6 +22,7 @@ const get_login = require("./pages/login/get_login");
 const get_profile = require("./pages/login/get_profile");
 // POST
 const post_login = require("./pages/login/post_login");
+const post_addCurator = require("./pages/administrator/function/post/addCurator")
 // FUNCTION
 
 
@@ -55,5 +56,11 @@ router.post('/listProfiles', (req, res, next) => {listProfiles(req, res);});
 router.post('/mainPage', (req, res, next) => {mainPage(req, res);});
 router.post('/addCurator', (req, res, next) => {addCurator(req, res);});
 router.post('/addProfile', (req, res, next) => {addProfile(req, res);});
+
+
+
+router.post('/addCuratorUser', (req, res, next) => {post_addCurator(req, res);});
+
+
 
 module.exports = router;

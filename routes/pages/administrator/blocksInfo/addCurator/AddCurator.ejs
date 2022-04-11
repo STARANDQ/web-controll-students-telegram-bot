@@ -1,20 +1,56 @@
-<section class="ftco-section pt-4 mb-5 ftco-intro">
+<section class="pt-4 mb-5 ftco-intro">
   <div class="container-fluid px-3 px-md-0">
     <div class="row">
       <div class="col-md-12 mb-4">
-        <h1 class="h2">Добавити нового куратора</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque est assumenda illum ratione nesciunt ullam non accusantium voluptas soluta veniam, quam, praesentium suscipit eos amet nisi natus nostrum, iusto expedita?</p>
+
+        <div class="registration-form">
+          <form id="addCuratorForm">
+            <div class="form-icon">
+              <span><img class="imgCuratorLogo" src="/administrator/images/curatorAddLogo.png" alt="logo"></span>
+            </div>
+            <div class="form-group">
+              <input type="text" autocomplete="new-name" class="form-control item" name="pib" placeholder="ПІБ">
+            </div>
+            <div class="form-group">
+              <input type="email" autocomplete="new-email" class="form-control item" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input type="text" autocomplete="new-phone" class="form-control item" name="phone" placeholder="Мобільний телефон">
+            </div>
+            <div class="form-group">
+              <input type="text" autocomplete="new-education" class="form-control item" name="education" placeholder="Навчальний заклад">
+            </div>
+            <div class="form-group">
+              <input type="password" autocomplete="new-password" class="form-control item" name="password" placeholder="Пароль">
+            </div>
+            <div class="form-group">
+              <button type="button" class="btn btn-block create-account" onclick="addCurator()">Добавити куратора</button>
+            </div>
+          </form>
+        </div>
       </div>
-      <div class="col-md-6">
-        <h2 class="h4">Добавити нового куратора</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maxime nisi commodi consequuntur pariatur qui reprehenderit aperiam deserunt, impedit veniam sapiente voluptas minus, ipsum. Ipsum minima sunt provident! Esse, quae.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maxime nisi commodi consequuntur pariatur qui reprehenderit aperiam deserunt, impedit veniam sapiente voluptas minus, ipsum. Ipsum minima sunt provident! Esse, quae.</p>
-      </div>
-      <div class="col-md-6">
-        <h2 class="h4">Добавити нового куратора</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maxime nisi commodi consequuntur pariatur qui reprehenderit aperiam deserunt, impedit veniam sapiente voluptas minus, ipsum. Ipsum minima sunt provident! Esse, quae.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maxime nisi commodi consequuntur pariatur qui reprehenderit aperiam deserunt, impedit veniam sapiente voluptas minus, ipsum. Ipsum minima sunt provident! Esse, quae.</p>
-      </div>
+
+
     </div>
   </div>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="curatorAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top: 50px;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Успішно</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Куратор упішно добавлений
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Закрити</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,9 +3,27 @@ const Schema = mongoose.Schema;
 
 curatorSchema = new Schema( {
 	name: String,
-	login: String,
+	email: String,
+	phoneNumber: String,
+	educational_Institution: String,
 	password: String,
-	dateTimeOnline: Date,
+	teacher: {
+		type: Array,
+		default: null
+	},
+	students:  {
+		type: Array,
+		default: null
+	},
+	profiles:  {
+		type: Array,
+		default: null
+	},
+	subjects:  {
+		type: Array,
+		default: null
+	},
+	IdAdmin: String,
 	updateAt: {
 		type: Date,
 		default: Date.now
