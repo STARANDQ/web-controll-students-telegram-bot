@@ -1,0 +1,61 @@
+mongo db
+
+
+// const start = async () => {
+//     try {
+//         await db.connect()
+//         console.log('всьо ок')
+//         const users = db.db().collection('students');
+//         // users.insertOne({
+//         //     name: "asdasd",
+//         //     age : 123123
+//         // })
+//         const user = await users.findOne()
+//         bot.reply(user)
+//         return user;
+//     } catch (e) {
+//         console.log(e)
+//     }
+// }
+// start();
+// await db.connect()
+// db.users.insertOne()
+
+реагування на кнопки викладача
+
+// bot.on('callback_query', async (ctx) => {
+    //     const tExt = ctx.update.callback_query.data;
+    //
+    //     if (tExt === 'changePIBVykl') {
+    //         await ctx.reply('введіть знову ПІБ викладача')
+    //
+    //         await ctx.scene.reenter()
+    //     } else if (tExt === 'goodPIBVykl') {
+    //         await ctx.reply('чудово!')
+    //         // styd.pib = pib;
+    //         // console.log(`asdasdasdasd\n${ctx}`)
+    //         // console.log(ctx.update.callback_query.message)
+    //         // console.log(styd)
+    //         await ctx.scene.enter('Nvykl')
+    //     } else if (tExt === 'goodIdVykl') {
+    //         await ctx.reply('чудово!')
+    //         await ctx.scene.enter('arrstud')
+    //     } else if (tExt === 'changeIdVykl') {
+    //         await ctx.reply('введіть знову код викладача')
+    //         await ctx.scene.reenter()
+    //     } else if (tExt === 'goodName') {
+    //         await ctx.reply('чудово!')
+    //         await ctx.scene.enter('lessname')
+    //     } else if (tExt === 'chName') {
+    //         await ctx.reply('введіть знову назву студента')
+    //         await ctx.scene.reenter()
+    //
+    //     } else if (tExt === 'lessongood') {
+    //         await ctx.reply('чудово, викладач доданий!')
+    //         await ctx.scene.leave()
+    //     } else if (tExt === 'lessonch') {
+    //         await ctx.reply('введіть знову назву предмета')
+    //         await ctx.scene.reenter()
+    //
+    //     }
+    // })
