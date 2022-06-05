@@ -5,7 +5,12 @@ module.exports = async function(req, res) {
 
     try {
         const data = await fs.readFileSync(__dirname + '/ListProfiles.ejs', 'utf8');
-        return res.send(ejs.render(data));
+        const ProfileList = await Profile.find();
+        await Promise.all(ProfileList.map(async (elem) => {
+            elem.Curator = (await Curator.findOne({_id:elem.Curator}))?.name;
+            return elem;
+        }));
+        return res.send(ejs.render(data, {arrProfile:ProfileList}));
     } catch (err) {
         return res.send('<h1>' +  err + '</h1>');
     }

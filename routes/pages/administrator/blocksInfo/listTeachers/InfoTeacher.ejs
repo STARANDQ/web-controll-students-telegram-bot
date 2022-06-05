@@ -21,47 +21,75 @@
   <link rel="stylesheet" type="text/css" href="/administrator/listCurators/css/main.css">
   <!--===============================================================================================-->
 </head>
+
+<style>
+  .teacherInfo{
+    padding: 20px;
+    background: #ededed;
+    box-shadow: black 0 0 16px;
+  }
+  .teacherInfo h1{
+    text-align: center;
+    font-size: 25px;
+  }
+
+  .input-group-text{
+    width: 180px;
+    border-radius: 0;
+  }
+
+  .input-group ul{
+    background: white;
+    width: calc(100% - 180px);
+    padding: 10px 10px 10px 30px;
+  }
+
+  .input-group ul li{
+    list-style-type: disclosure-closed;
+  }
+</style>
+
 <body>
 
-    <div class="wrap-table100">
-      <div class="table">
-
-        <div class="row header">
-          <div class="cell">
-            Повне Ім'я
-          </div>
-          <div class="cell">
-            Email
-          </div>
-          <div class="cell">
-            Номер телефону
-          </div>
-          <div class="cell">
-            Навчальний заклад
-          </div>
-        </div>
-
-
-        <% arrCurator.forEach(curator => { %>
-          <div class="row" onclick="getProfileCurator('<%= curator.id %>')">
-            <div class="cell" data-title="Full Name">
-              <%= curator.name %>
-            </div>
-            <div class="cell" data-title="Email">
-              <%= curator.email %>
-            </div>
-            <div class="cell" data-title="Phone number">
-              <%= curator.phoneNumber %>
-            </div>
-            <div class="cell" data-title="Educational Institution">
-              <%= curator.educational_Institution %>
-            </div>
-          </div>
-        <% })%>
-
+    <div class="wrap-table100 teacherInfo">
+      <h1>Дані про викладача</h1>
+      <br>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
+        <input data-type="id" style="background: #cfcfcf;" value="<%=teacher._id%>" disabled type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
       </div>
-    </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">ПІБ</span>
+        <input data-type="name" value="<%=teacher.name%>" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Код</span>
+        <input data-type="code" value="<%=teacher.code%>" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Список студентів</span>
+        <ul>
+          <% teacher.students.forEach(student => { %>
+            <li><%= student %></li>
+          <% })%>
+        </ul>
+      </div><div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Список предметів</span>
+        <ul>
+          <% teacher.subjects.forEach(subject => { %>
+            <li><%= subject %></li>
+          <% });%>
+        </ul>
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Куратор</span>
+        <input style="background: #cfcfcf;" value="<%= teacher.curator %>" disabled type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
 
+      <br>
+      <button onclick="InfoTeacher_remove('<%=teacher._id%>')" type="button" class="btn btn-danger">Видалити</button>
+      <button onclick="InfoTeacher_edit()" style="float: right" type="button" class="btn btn-primary">Зберегти</button>
+    </div>
 
 
 <!--===============================================================================================-->
