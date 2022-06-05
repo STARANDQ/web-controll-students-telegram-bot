@@ -4,9 +4,10 @@ module.exports = async function(req, res) {
     if(!administrator) return res.send("[ ERROR ] You are not administrator!");
 
     try {
-        const data = await fs.readFileSync(__dirname + '/AddProfile.ejs', 'utf8');
+        const data = await fs.readFileSync(__dirname + '/InfoProfile.ejs', 'utf8');
+        const profile = await Profile.findOne({ _id: req.body._id });
         const curators = await Curator.find();
-        return res.send(ejs.render(data, { curators: curators }));
+        return res.send(ejs.render(data, { profile:profile, curators:curators }));
     } catch (err) {
         return res.send('<h1>' +  err + '</h1>');
     }

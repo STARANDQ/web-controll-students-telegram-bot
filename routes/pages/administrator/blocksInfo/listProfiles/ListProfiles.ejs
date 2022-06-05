@@ -1,20 +1,97 @@
-<section class="ftco-section pt-4 mb-5 ftco-intro">
-  <div class="container-fluid px-3 px-md-0">
-    <div class="row">
-      <div class="col-md-12 mb-4">
-        <h1 class="h2">Список всіх профілів</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque est assumenda illum ratione nesciunt ullam non accusantium voluptas soluta veniam, quam, praesentium suscipit eos amet nisi natus nostrum, iusto expedita?</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Table V02</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--===============================================================================================-->
+  <link rel="icon" type="image/png" href="/administrator/listCurators/images/icons/favicon.ico"/>
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/administrator/listCurators/vendor/bootstrap/css/bootstrap.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/administrator/listCurators/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/administrator/listCurators/vendor/animate/animate.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/administrator/listCurators/vendor/select2/select2.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/administrator/listCurators/vendor/perfect-scrollbar/perfect-scrollbar.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/administrator/listCurators/css/util.css">
+  <link rel="stylesheet" type="text/css" href="/administrator/listCurators/css/main.css">
+  <!--===============================================================================================-->
+</head>
+<body>
+
+<style>
+  .row.header{
+    text-align: left;
+  }
+
+  .row .cell:nth-child(1){
+    width: 200px;
+  }
+  .row .cell:nth-child(2){
+    width: 200px;
+  }
+  .row .cell:nth-child(3){
+    width: 300px;
+  }
+  .row .cell:nth-child(4){
+
+  }
+</style>
+
+<div class="wrap-table100">
+  <div class="table">
+
+    <div class="row header">
+      <div class="cell">
+        Назва
       </div>
-      <div class="col-md-6">
-        <h2 class="h4">Перша крупа профілів</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maxime nisi commodi consequuntur pariatur qui reprehenderit aperiam deserunt, impedit veniam sapiente voluptas minus, ipsum. Ipsum minima sunt provident! Esse, quae.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maxime nisi commodi consequuntur pariatur qui reprehenderit aperiam deserunt, impedit veniam sapiente voluptas minus, ipsum. Ipsum minima sunt provident! Esse, quae.</p>
+      <div class="cell">
+        Telegram ID
       </div>
-      <div class="col-md-6">
-        <h2 class="h4">Друга група профілів</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maxime nisi commodi consequuntur pariatur qui reprehenderit aperiam deserunt, impedit veniam sapiente voluptas minus, ipsum. Ipsum minima sunt provident! Esse, quae.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maxime nisi commodi consequuntur pariatur qui reprehenderit aperiam deserunt, impedit veniam sapiente voluptas minus, ipsum. Ipsum minima sunt provident! Esse, quae.</p>
+      <div class="cell">
+        Куратор
+      </div>
+      <div class="cell">
+        Дата створення
       </div>
     </div>
+
+
+    <% arrProfile.forEach(profile => { %>
+      <div class="row" onclick="getProfileProfile('<%= profile.id %>')">
+        <div class="cell" data-title="Name">
+          <%= profile.name %>
+        </div>
+        <div class="cell" data-title="Telegram ID">
+          <%= profile.TelegramID %>
+        </div>
+        <div class="cell" data-title="Curator">
+          <%= profile.Curator %>
+        </div>
+        <div class="cell" data-title="Create at">
+          <%= profile.createdAt %>
+        </div>
+      </div>
+    <% })%>
+
   </div>
-</section>
+</div>
+
+
+
+<!--===============================================================================================-->
+<script src="../../../../../views/administrator/listCurators/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../../../../views/administrator/listCurators/vendor/bootstrap/js/popper.js"></script>
+<script src="../../../../../views/administrator/listCurators/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../../../../views/administrator/listCurators/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../../../../views/administrator/listCurators/js/main.js"></script>
+
+</body>
+</html>

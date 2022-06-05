@@ -5,7 +5,14 @@ module.exports = async function(req, res) {
 
     try {
         const data = await fs.readFileSync(__dirname + '/ListStudents.ejs', 'utf8');
-        return res.send(ejs.render(data));
+
+        const StudentList = await Student.find();
+        await Promise.all(StudentList.map(async (elem) => {
+            elem.curator = (await Curator.findOne({_id:elem.curator}))?.name;
+            return elem;
+        }));
+
+        return res.send(ejs.render(data, {arrStudents:StudentList}));
     } catch (err) {
         return res.send('<h1>' +  err + '</h1>');
     }

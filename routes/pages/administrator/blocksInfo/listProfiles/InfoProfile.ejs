@@ -21,47 +21,58 @@
   <link rel="stylesheet" type="text/css" href="/administrator/listCurators/css/main.css">
   <!--===============================================================================================-->
 </head>
+
+<style>
+  .profileInfo{
+    padding: 20px;
+    background: #ededed;
+    box-shadow: black 0 0 16px;
+  }
+  .profileInfo h1{
+    text-align: center;
+    font-size: 25px;
+  }
+
+  .input-group-text{
+    width: 180px;
+    border-radius: 0;
+  }
+</style>
+
 <body>
 
-    <div class="wrap-table100">
-      <div class="table">
-
-        <div class="row header">
-          <div class="cell">
-            Повне Ім'я
-          </div>
-          <div class="cell">
-            Email
-          </div>
-          <div class="cell">
-            Номер телефону
-          </div>
-          <div class="cell">
-            Навчальний заклад
-          </div>
-        </div>
-
-
-        <% arrCurator.forEach(curator => { %>
-          <div class="row" onclick="getProfileCurator('<%= curator.id %>')">
-            <div class="cell" data-title="Full Name">
-              <%= curator.name %>
-            </div>
-            <div class="cell" data-title="Email">
-              <%= curator.email %>
-            </div>
-            <div class="cell" data-title="Phone number">
-              <%= curator.phoneNumber %>
-            </div>
-            <div class="cell" data-title="Educational Institution">
-              <%= curator.educational_Institution %>
-            </div>
-          </div>
-        <% })%>
-
+    <div class="wrap-table100 profileInfo">
+      <h1>Дані про профіль</h1>
+      <br>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
+        <input data-type="id" style="background: #cfcfcf;" value="<%=profile._id%>" disabled type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
       </div>
-    </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Назва</span>
+        <input data-type="name" value="<%=profile.name%>" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">ID Telegram</span>
+        <input style="background: #cfcfcf;" value="<%=profile.TelegramID%>" disabled type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Куратор</span>
+        <select type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          <% curators.forEach(curator => { %>
+            <option <% if(curator._id == profile.Curator){ %> selected <% } %> value="<%= curator._id %>"><%= curator.name %> (<%= curator._id %>)</option>
+          <% });%>
+        </select>
+      </div>
 
+      <br>
+      <button onclick="InfoProfile_remove('<%=profile._id%>')" type="button" class="btn btn-danger">Видалити</button>
+      <div style="float: right;">
+        <a target="_blank" href="/profileInfo/<%=profile._id%>/" style="color: white;" type="button" class="btn btn-success">Налаштування</a>
+        <button onclick="InfoProfile_edit()" type="button" class="btn btn-primary">Зберегти</button>
+      </div>
+
+    </div>
 
 
 <!--===============================================================================================-->
